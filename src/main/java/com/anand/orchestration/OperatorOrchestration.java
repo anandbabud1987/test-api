@@ -29,6 +29,9 @@ public class OperatorOrchestration {
             case DIVIDE:
                 result.set(operatorService.divide(operatorRequest.getLeft(), operatorRequest.getRight()));
                 break;
+            default:
+                result.set(0);
+                break;
         }
         return result.get();
     }
