@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.validation.Valid;
+
 @RequestMapping(value = "/operators")
 @RestController
 public class OperatorController {
@@ -19,7 +21,7 @@ public class OperatorController {
     }
 
     @PostMapping(consumes = "application/json")
-    public Integer operator(@RequestBody OperatorRequest operatorRequest) {
+    public Integer operator(@RequestBody @Valid OperatorRequest operatorRequest) {
         return operatorOrchestration.doOperation(operatorRequest);
     }
 }
