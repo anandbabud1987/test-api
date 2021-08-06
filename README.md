@@ -5,7 +5,7 @@ Java JDK,JRE ,Maven
 # cd test-api
 # mvn clean install
 # java -jar target/hometest-0.0.1-SNAPSHOT.jar
-# open browser or postman
+# You can import the postman collections from src/postman to your postman and can call the endpoints to test
 # Use postman to call : POST method:  http://localhost:8080/operators
 # Request payload: {"operator":"plus","left":1,"right":1}
 # Result will be int:2

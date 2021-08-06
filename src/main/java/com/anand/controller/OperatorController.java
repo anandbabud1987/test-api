@@ -5,6 +5,7 @@ import com.anand.orchestration.OperatorOrchestration;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -18,7 +19,7 @@ public class OperatorController {
     }
 
     @PostMapping(consumes = "application/json")
-    public Integer operator(OperatorRequest operatorRequest) {
+    public Integer operator(@RequestBody OperatorRequest operatorRequest) {
         return operatorOrchestration.doOperation(operatorRequest);
     }
 }
