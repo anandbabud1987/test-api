@@ -6,6 +6,8 @@ Java JDK,JRE ,Maven
 # mvn clean install
 # java -jar target/hometest-0.0.1-SNAPSHOT.jar
 # open browser or postman
-# type http://localhost:8081/test/persons/all
-# type http://localhost:8081/test/persons?firstName=John&lastName=Smith
+# Use postman to call : POST method:  http://localhost:8080/operators
+# Request payload: {"operator":"plus","left":1,"right":1}
+# Result will be int:2
+# change the operator to minus,multiply,divide and expect different results
 
