@@ -20,6 +20,9 @@ public class OperatorController {
 
     @PostMapping(consumes = "application/json")
     public String operator(@RequestBody @Valid OperatorRequest operatorRequest) {
+        return doInternalOperation(operatorRequest);
+    }
+    private String doInternalOperation( OperatorRequest operatorRequest){
         return operatorOrchestration.doOperation(operatorRequest);
     }
 }
