@@ -19,7 +19,7 @@ public class OperatorController {
     }
 
     @PostMapping(consumes = "application/json")
-    public Integer operator(@RequestBody @Valid OperatorRequest operatorRequest) {
+    public String operator(@RequestBody @Valid OperatorRequest operatorRequest) {
         return operatorOrchestration.doOperation(operatorRequest);
     }
 }

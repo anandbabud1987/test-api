@@ -14,25 +14,27 @@ import static com.anand.constants.WebConstants.*;
 public class OperatorOrchestration {
     private OperatorService operatorService;
 
-    public int doOperation(OperatorRequest operatorRequest) {
-        AtomicInteger result = new AtomicInteger();
+    public String doOperation(OperatorRequest operatorRequest) {
+        String result = null;
+        int left=operatorRequest.getLeft();
+        int right=operatorRequest.getRight();
         switch (operatorRequest.getOperator().getOprt()) {
             case PLUS:
-                result.set(operatorService.add(operatorRequest.getLeft(), operatorRequest.getRight()));
+                result=operatorService.buildResponse(left,right,PLUS,operatorService.add(left, right));
                 break;
             case MINUS:
-                result.set(operatorService.subtract(operatorRequest.getLeft(), operatorRequest.getRight()));
+                result=operatorService.buildResponse(left,right,MINUS,operatorService.subtract(left, right));
                 break;
             case MULTIPLY:
-                result.set(operatorService.multiply(operatorRequest.getLeft(), operatorRequest.getRight()));
+                result=operatorService.buildResponse(left,right,MULTIPLY,operatorService.multiply(left, right));
                 break;
             case DIVIDE:
-                result.set(operatorService.divide(operatorRequest.getLeft(), operatorRequest.getRight()));
+                result=operatorService.buildResponse(left,right,DIVIDE,operatorService.divide(left, right));
                 break;
             default:
-                result.set(0);
+                result="";
                 break;
         }
-        return result.get();
+        return result;
     }
 }

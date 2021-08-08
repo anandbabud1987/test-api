@@ -24,4 +24,27 @@ public class OperatorService {
     public int divide(int left, int right) {
         return left / right;
     }
+
+    public String buildResponse(int left,int right,String operator,int result){
+        String responseOperator="";
+        String equalTo="=";
+        StringBuilder sb=new StringBuilder();
+        if("plus".equalsIgnoreCase(operator)){
+            responseOperator="+";
+        }
+        if("multiply".equalsIgnoreCase(operator)){
+            responseOperator="*";
+        }
+        if("minus".equalsIgnoreCase(operator)){
+            responseOperator="-";
+        }
+        if("divide".equalsIgnoreCase(operator)){
+            responseOperator="/";
+        }
+        return sb.append(left)
+                .append(responseOperator)
+                .append(right)
+                .append(equalTo)
+                .append(result).toString();
+    }
 }
