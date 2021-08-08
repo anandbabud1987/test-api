@@ -27,7 +27,7 @@ public class CacheAspect {
         OperatorRequest input = (OperatorRequest) proceedingJoinPoint.getArgs()[0];
         Cache.ValueWrapper cache = cacheService.getOprtCache(input);
         if (cache != null && cache.get() != null) {
-            log.info("value already there in cache and fetching from cache");
+            log.info("value already exists in cache and fetching from cache");
             return String.valueOf(cache.get());
         } else {
             Object value = proceedingJoinPoint.proceed();
