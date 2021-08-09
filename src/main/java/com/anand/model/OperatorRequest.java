@@ -5,7 +5,8 @@ import com.anand.enums.OperatorEnum;
 import org.springframework.validation.annotation.Validated;
 
 import javax.validation.constraints.NotNull;
-
+import java.math.BigDecimal;
+import java.math.BigInteger;
 
 
 @Validated
@@ -13,9 +14,9 @@ public class OperatorRequest {
     @NotNull(message = "operator is required")
     private OperatorEnum operator;
     @NotNull(message = "left is required")
-    private int left;
+    private BigInteger left;
     @NotNull(message = "right is required")
-    private int right;
+    private BigInteger right;
 
     public OperatorEnum getOperator() {
         return operator;
@@ -25,19 +26,19 @@ public class OperatorRequest {
         this.operator = operator;
     }
 
-    public int getLeft() {
+    public BigInteger getLeft() {
         return left;
     }
 
-    public void setLeft(int left) {
+    public void setLeft(BigInteger left) {
         this.left = left;
     }
 
-    public int getRight() {
+    public BigInteger getRight() {
         return right;
     }
 
-    public void setRight(int right) {
+    public void setRight(BigInteger right) {
         this.right = right;
     }
 }
