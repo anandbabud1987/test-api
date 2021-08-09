@@ -9,7 +9,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.Valid;
 
-@RequestMapping(value = "/operators")
+import static com.anand.constants.WebConstants.OPERATORS;
+
+@RequestMapping(value = OPERATORS)
 @RestController
 public class OperatorController {
     private final OperatorOrchestration operatorOrchestration;

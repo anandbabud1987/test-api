@@ -15,6 +15,7 @@ public class OperatorOrchestration {
         this.operatorService = operatorService;
     }
 
+
     public String doOperation(OperatorRequest operatorRequest) {
         return operatorService.doOperation(operatorRequest);
     }
