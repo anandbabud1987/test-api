@@ -7,19 +7,23 @@ import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.Cache;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 @Aspect
-@Component
+@Service
 public class CacheAspect {
     Logger log = LoggerFactory.getLogger(CacheAspect.class);
-    private final CacheService cacheService;
+    private  CacheService cacheService;
 
-
-    public CacheAspect(CacheService cacheService) {
-        this.cacheService = cacheService;
+    @Autowired
+    public void setCacheService(CacheService cacheService){
+        this.cacheService=cacheService;
     }
+
+
 
     @Around(value = "execution(* com.anand.service.OperatorService.doOperation(..))")
     public Object cacheMethod(ProceedingJoinPoint proceedingJoinPoint) throws Throwable {

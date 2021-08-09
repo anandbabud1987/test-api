@@ -3,13 +3,10 @@ package com.anand.service;
 import com.anand.model.OperatorRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cache.Cache;
-import org.springframework.cache.CacheManager;
+
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
-import java.util.Objects;
 
 import static com.anand.config.CacheManagerConfig.USER_CACHE;
 import static com.anand.constants.WebConstants.*;
