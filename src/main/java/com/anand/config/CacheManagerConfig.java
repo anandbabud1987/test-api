@@ -1,6 +1,8 @@
 package com.anand.config;
 
+import com.anand.aspectj.CacheAspect;
 import com.anand.service.OprtKeyGenerator;
+import org.aspectj.lang.Aspects;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.cache.concurrent.ConcurrentMapCache;
 import org.springframework.cache.interceptor.KeyGenerator;
@@ -14,7 +16,7 @@ import java.util.Arrays;
 
 
 @Configuration
-@EnableCaching(mode = AdviceMode.ASPECTJ)
+@EnableCaching
 public class CacheManagerConfig {
 
     public static final String USER_CACHE = "resultCache";
@@ -36,5 +38,10 @@ public class CacheManagerConfig {
     @Bean("OprtKeyGenerator")
     public KeyGenerator keyGenerator(){
         return new OprtKeyGenerator();
+    }
+
+    @Bean("autowiredCacheAspect")
+    public CacheAspect autowiredCacheAspect(){
+        return Aspects.aspectOf(CacheAspect.class);
     }
 }

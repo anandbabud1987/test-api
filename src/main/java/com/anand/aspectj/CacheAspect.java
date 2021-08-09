@@ -13,7 +13,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 @Aspect
-@Service
+@Component
 public class CacheAspect {
     Logger log = LoggerFactory.getLogger(CacheAspect.class);
     private  CacheService cacheService;
