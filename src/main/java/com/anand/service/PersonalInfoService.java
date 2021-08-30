@@ -6,6 +6,8 @@ import com.anand.model.UpdatePersonalRequest;
 import com.anand.repository.PersonalInfoRepository;
 import org.springframework.stereotype.Service;
 
+import static java.util.Objects.nonNull;
+
 @Service
 public class PersonalInfoService {
 
@@ -16,7 +18,16 @@ public class PersonalInfoService {
     }
 
     public void updatePersonalInfo(Long uuid, UpdatePersonalRequest updatePersonalRequest) {
-        personalInfoRepository.save(PersonalInfoMapper.mapToData(uuid, updatePersonalRequest));
+        PersonalInfo existingResult = personalInfoRepository.findByUuid(uuid);
+        if(!nonNull(existingResult)){
+            personalInfoRepository.save(PersonalInfoMapper.mapToData(uuid, updatePersonalRequest));
+        }
+        else {
+            existingResult.setName(updatePersonalRequest.getName());
+            existingResult.setPhone(updatePersonalRequest.getPhone());
+            existingResult.setEmail(updatePersonalRequest.getEmail());
+            personalInfoRepository.save(existingResult);
+        }
     }
 
 

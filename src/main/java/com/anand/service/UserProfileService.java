@@ -1,6 +1,5 @@
 package com.anand.service;
 
-import com.anand.entity.PersonalInfo;
 import com.anand.entity.Users;
 import com.anand.mapper.UsersMapper;
 import com.anand.model.CreateUserRequest;
@@ -8,7 +7,6 @@ import com.anand.model.LoginRequest;
 import com.anand.repository.UserRepository;
 import org.springframework.stereotype.Service;
 
-import java.util.UUID;
 
 @Service
 public class UserProfileService {
