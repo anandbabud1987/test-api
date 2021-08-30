@@ -6,5 +6,5 @@ Java JDK 11,JRE 11 ,Maven. This AOP project uses Java 11. It WILL NOT work on Ja
 # mvn clean install
 # java -jar target/hometest-0.0.1-SNAPSHOT.jar
 # You can import the postman collections from src/postman to your postman and can call the endpoints to test
-# change the operator to minus,multiply,divide and expect different results
+# Last two endpoints are secured with Basic authentication as per the requirement. change the basic credentials details and it will throw a 401 unauthorized error.
 
