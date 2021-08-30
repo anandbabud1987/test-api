@@ -36,9 +36,7 @@ public class AuthFilter extends HttpFilter {
     private boolean isValidToken(String s) {
         byte[] decoded = Base64.getDecoder().decode(s);
         String decodedString = new String(decoded);
-        String acutalBasic = USERNAME + ":" + PASSWORD;
-        System.out.println(decodedString);
-        System.out.println(acutalBasic);
-        return acutalBasic.equals(decodedString);
+        String actualBasic = USERNAME + ":" + PASSWORD;
+        return actualBasic.equals(decodedString);
     }
 }
